@@ -5,8 +5,8 @@
   <title>Daily Motivation Card</title>
   <style>
     body {
-      background-color: #e8f5e9;
-      font-family: Arial, sans-serif;
+      background-color: lightgray;
+      font-family: Arial, sans-serif 'Times New Roman', Times, serif;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -15,7 +15,7 @@
     }
 
     .card {
-      background: white;
+      background: lightseagreen;
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -24,29 +24,63 @@
     }
 
     .verse {
+      background: beige;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       font-size: 18px;
       margin: 20px 0;
+      opacity: 100%;
+      transition: 0.6s ease-in-out;
+    }
+
+    .show {
+      opacity: 1;
     }
 
     button {
       padding: 10px 20px;
-      background: #66bb6a;
-      color: white;
+      background: burlywood;
+      color: black;
       border: none;
       border-radius: 6px;
       cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s ease;
+      font-size: 16px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 
     button:hover {
       background: #43a047;
     }
+
   </style>
 </head>
 <body>
   <div class="card">
     <h2>Your Daily Word</h2>
-    <p class="verse">"The Lord Himself goes before you and will be with you..."<br>– Deuteronomy 31:8</p>
-    <button>New Verse</button>
+    <p id="verse" class="verse">"The Lord Himself goes before you and will be with you..."<br>– Deuteronomy 31:8</p>
+    <button onclick="newVerse()">New Verse</button>
   </div>
+
+  <script>
+    const verses = [
+      '"The Lord Himself goes before you and will be with you..." Deuteronomy 31:8',
+      '"I can do all things through Christ who strengthens me." Philippians 4:13',
+      '"Be still and know that I am God." Psalm 46:10',
+      '"The joy of the Lord is your strength." Nehemiah 8:10',
+      '"Cast all your anxiety on Him because He cares for you." 1 Peter 5:7',
+      '"For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future." Jeremiah 29:11',
+      '"Trust in the Lord with all your heart and lean not on your own understanding." Proverbs 3:5',
+      '"The Lord is my shepherd; I shall not want." Psalm 23:1',
+    ];    
+
+    function newVerse() {
+      const randomIndex = Math.floor(Math.random() * verses.length);
+      document.getElementById("verse").innerText = verses[randomIndex];
+    }
+
+  </script>
 </body>
 </html>
